@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>미디어위키의 이해와 설치 강의용 프레젠테이션</title>
+
+		<meta name="description" content="2022-2 미디어위키의 이해와 설치 강의용 프레젠테이션">
+		<meta name="author" content="지해인">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/serif.css" id="theme">
+
+		<!-- 구글 폰트에서 폰트 가져오기 (reset.css에서 설정)  -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Yuji+Syuku&display=swap" rel="stylesheet">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<div style="opacity: 0.1; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">
+					<img src="https://user-images.githubusercontent.com/61646760/157031077-fcc5ecda-5826-4d95-81bc-ba773ac44114.png" />
+				</div>
+				
+				<section data-background-image="https://user-images.githubusercontent.com/61646760/191900619-957216a8-5677-44ee-8147-db61d5329a3f.png" data-background-size="contain">
+					<a href="https://revealjs.com">
+						<img src="https://user-images.githubusercontent.com/61646760/197380856-ea0f21a5-af42-4955-bca6-1304141ff3c7.png" alt="logo" style="height: 390px; margin: 0 auto 1rem auto; background: transparent;" class="demo-logo">
+					</a>
+					<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">미디어위키의 이해와 설치</h3>
+					<!-- <p></p> -->
+					<p>
+						<small>Presented by <a href="https://haein.info/" target="_blank">지해인</a></small>
+					</p>
+				</section>
+
+				<section data-background-image="https://user-images.githubusercontent.com/61646760/191900619-957216a8-5677-44ee-8147-db61d5329a3f.png" data-background-size="contain">
+					<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">목차</h3>
+					<ol class="fragment">
+						<!-- <li>위키와 미디어위키<a href="#위키">#</a></li>
+						<ol>
+							<li>위키란?</li>
+							<li>미디어위키</li>
+						</ol> -->
+						<li>미디어위키 설치</li>
+						<ol>
+							<li>미디어위키 다운로드<a href="#압축풀기">#</a></li>
+							<li>데이터베이스 및 사용자 생성<a href="#DB">#</a></li>
+							<li>미디어위키 이미지 권한 부여<a href="#이미지">#</a></li>
+							<li>웹에서 미디어위키 설치<a href="#설치">#</a></li>
+							<li>LocalSettings.php 서버 업로드<a href="#php">#</a></li>
+						</ol>
+						<li>미디어위키 추가 설정</li>
+						<ol>
+							<li>미디어위키 로고 설정<a href="#로고">#</a></li>
+							<li>미디어위키 스킨 설정<a href="#스킨">#</a></li>
+							<li>미디어위키 확장 기능 설치<a href="#익스텐션">#</a></li>
+							<li>LocalSettings.php 세팅 설정<a href="#php세팅">#</a></li>
+						</ol>
+					</ol>
+				</section>
+
+				<section id="설치" data-transition="fade" data-background-image="https://user-images.githubusercontent.com/61646760/191900619-957216a8-5677-44ee-8147-db61d5329a3f.png" data-background-size="contain">
+					<h2 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">미디어위키 설치</h2>
+				</section>
+				
+				<section id="압축풀기" data-transition="fade" data-background-image="https://user-images.githubusercontent.com/61646760/191900619-957216a8-5677-44ee-8147-db61d5329a3f.png" data-background-size="contain">
+					<section>
+						<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">미디어위키 다운로드</h3>
+						<ul class="fragment">
+							<li>본 내용은 <a href="https://haein.info/ppt-aws-ec2/">이전 강의</a>를 통해 AWS EC2 인스턴스를 생성한 이후에 수강</li>
+							<img src="https://user-images.githubusercontent.com/61646760/217180625-d6d9a5e7-a355-4324-b046-d7fda8de6d5e.png" height="260" />
+							<li><a href="https://aws.amazon.com/ko">AWS 홈페이지</a>에 접속하여 로그인을 한 뒤, 아래 슬라이드를 참고하여 진행할 것!</li>
+						</ul>
+					</section>
+					<section data-background-image="img/terminal.gif">
+						<h2 class="fragment" style="color: white;"><strong>복사+붙여넣기</strong></h2>
+					</section>
+					<section>
+						<a href="https://aws.amazon.com/ko/"><img src="img/ec34.png" height="500" /></a>
+						<p>1. <strong>cd ../../var/www/html/</strong> 입력하여 경로 변경</p>
+					</section>
+					<section>
+						<a href="https://aws.amazon.com/ko/"><img src="img/ec35.png" height="450" /></a>
+						<p>2. <strong>sudo wget https://releases.wikimedia.org/<br />mediawiki/1.38/mediawiki-1.38.4.tar.gz
+						</strong> 입력</p>
+					</section>
+					<!-- <section>
+						<ol start="3">
+							<li>SSH에 상기 명령어를 <strong>차례로</strong> 입력
+						</ol>
+						<pre><code data-line-numbers="1|2|3|4|1-4" data-trim data-noescape>
+							cd htdocs
+							wget https://releases.wikimedia.org/mediawiki/1.38/mediawiki-1.38.4.tar.gz
+							tar -xvzf mediawiki-1.38.4.tar.gz
+							mv mediawiki-1.38.4 wiki
+						</code></pre>
+						<br /><h4 class="fragment" style="text-align: center; text-decoration: underline;"><strong>타자로 치지 말고 위에서부터 한 줄씩</strong><br /><strong>마우스 우클릭+붙여넣기</strong></h4>
+					</section>
+					<section>
+						<ul>
+							<li>명령어 설명(참고)</li>
+							<ul>
+								<li><strong>cd htdocs</strong> : htdocs 폴더로 경로 이동</li>
+								<li><strong>wget</strong> : 주소에 있는 파일 다운로드</li>
+								<li><strong>tar</strong> : 압축 파일의 압축을 푸는 명령</li>
+								<li><strong>mv 폴더1 폴더2 </strong> : 폴더1의 내용물을 폴더2라는 폴더를 만들어 안으로 옮기기</li>
+							</ul>
+						</ul>
+					</section> -->
+					<section>
+						<img src="img/ec36.png" />
+						<p>3. <strong>sudo tar -xvzf mediawiki-1.38.4.tar.gz</strong> 입력</p>
+					</section>
+					<section>
+						<img src="img/ec37.png" height="500" />
+						<p>4. <strong>sudo mv mediawiki-1.38.4 wiki</strong> 입력</p>
+					</section>
+					<section>
+						<img src="img/ec38.png" />
+						<p>5. 퍼블릭 IP 주소로 접속했을 때 intl 설치가 필요하다면?</p>
+					</section>
+					<section>
+						<img src="img/ec39.png" height="500" />
+						<p>6. <strong>sudo apt-get install php-intl</strong> 입력하여 설치</p>
+					</section>
+					<section>
+						<img src="img/ec40.png" height="500" />
+						<p>7. Do you want to continue?가 뜨면 <strong>Y</strong> 입력</p>
+					</section>
+					<section>
+						<img src="img/ec41.png" height="500" />
+						<p>8. <strong>sudo service apache2 restart</strong> 입력</p>
+					</section>
+					<section>
+						<img src="img/ec42.png" />
+						<p>9. 주소 창에 <strong>퍼블릭IP주소/wiki/</strong> 입력하여 접속</p>
+					</section>
+				</section>
+
+				<section id="DB" data-transition="fade" data-background-image="https://user-images.githubusercontent.com/61646760/191900619-957216a8-5677-44ee-8147-db61d5329a3f.png" data-background-size="contain">
+					<section>
+						<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">데이터베이스 및 사용자 생성</h3>
+						<ul class="fragment">
+							<li>LAMP를 모두 갖추어 미디어위키 설치 준비는 완료함</li>
+								<ul>
+									<li>Linux + Apache + MySQL, PHP</li>
+								</ul>
+							<li>하지만 <strong>데이터베이스 및 사용자 ID 생성</strong>은 직접!</li>
+							<ul>
+								<li>데이터를 저장할 공간(데이터베이스)과 그 공간을 사용할 사람의 ID를 만드는 과정</li>
+								<li>아래 슬라이드 참고</li>
+							</ul>
+						</ul>
+					</section>
+					<section>						
+						<ul>
+							<li>웹 SSH에 아래 명령어를 <strong>차례로</strong> 입력</li>
+							<ul>
+								<li>자세한 과정은 아래 슬라이드에서 상세히 진행</li>
+							</ul>
+						</ul>
+						<pre><code data-line-numbers="1|2|3|4|5|6|7|1-7" data-trim data-noescape>
+							sudo mysql -u root
+							CREATE DATABASE wikidb;
+							SHOW DATABASES;
+							CREATE USER wiki@localhost IDENTIFIED BY 'e52fwUUfE9hyoi6r1';
+							GRANT ALL PRIVILEGES ON wikidb.* TO wiki@localhost WITH GRANT OPTION;
+						</code></pre>
+					</section>
+					<!-- <section>
+						<ul>
+							<li>명령어 설명(참고)</li>
+							<ul>
+								<li><strong>cat bitnami_application_password</strong> : 기본으로 주어지는 mysql 비밀번호를 출력</li>
+								<li><strong>mysql -u root -p</strong> : mysql 접속
+									<ul>
+										<li>cat bitnami_application_password를 쳐서 나온 비밀번호를 입력(비밀번호는 눌러도 눈에 안 보임)</li>
+									</ul></li>
+								<li><strong>CREATE DATABASE 이름;</strong> : 이름이라는 데이터베이스 생성</li>
+								<li><strong>CREATE USER ID@localhost IDENTIFIED BY 'PW';</strong> : ID, PW로 아이디 생성</li>
+								<li><strong>GRANT ALL PRIVILEGES ON 데이터베이스1.* TO ID@localhost</strong> : 데이터베이스1에 대해 모든 권한 부여</li>
+							</ul>
+						</ul>
+					</section> -->
+					<section>
+						<img src="img/ec43.png" height="500" />
+						<p>1. <strong>sudo mysql -u root</strong> 입력하여 mysql 접속</p>
+					</section>
+					<section>
+						<img src="img/ec44.png" height="500" />
+						<p>2. <strong>mysql> </strong>이 뜨면 무사히 접속한 것</p>
+					</section>
+					<section>
+						<img src="img/ec45.png" height="450" />
+						<p>3. <strong>CREATE DATABASE wikidb;</strong> 입력<br />: wikidb라는 이름의 데이터베이스 생성</p>
+					</section>
+					<section>
+						<img src="img/ec46.png" height="450" />
+						<p>4. <strong>SHOW DATABASES;</strong> 입력<br />: 데이터베이스 목록 보기</p>
+					</section>
+					<section>
+						<img src="img/ec47.png" height="500" />
+						<p>5. <strong>wikidb</strong>라는 이름의 데이터베이스 확인</p>
+					</section>
+					<section>
+						<img src="img/ec48.png" height="400" />
+						<p>6. <strong>CREATE USER wiki@localhost IDENTIFIED BY 'e52fwUUfE9hyoi6r1';</strong> 입력하여 사용자 생성<br />(ID: wiki, PW: e52fwUUfE9hyoi6r1)</p>
+					</section>
+					<section>
+						<img src="img/ec49.png" height="400" />
+						<p>7. <strong>GRANT ALL PRIVILEGES ON wikidb.* TO wiki@localhost WITH GRANT OPTION;</strong> 입력<br />: 사용자(wiki)에게 데이터베이스에 대한 모든 권한 부여</p>
+					</section>
+					<section>
+						<img src="img/ec50.png" height="500" />
+						<p>7. <strong>quit</strong> 입력하여 mysql에서 빠져나오기</p>
+					</section>
+					<!-- <section>
+						<pre><code data-line-numbers="1|2|1-2" data-trim data-noescape>
+							chmod 777 htdocs/wiki/images
+							mv htdocs/wiki/images/.htaccess htdocs/wiki/images/.htaccess_disabled
+						</code></pre>
+						<ol start="2">
+							<li>SSH에 상기 명령어를 <strong>차례로</strong> 입력</li>
+							<ul>
+								<li>아래 이미지와 같이 명령어를 입력했는데도 아무 일도 일어나지 않는다면 잘된 것이다.</li>
+								<img src="https://user-images.githubusercontent.com/61646760/201262948-9aec0538-47ff-4b85-8faf-122de163a3cf.png" />
+							</ul>
+						</ol>
+					</section> -->
+				</section>
+
+				<section id="이미지" data-transition="fade" data-background-image="https://user-images.githubusercontent.com/61646760/191900619-957216a8-5677-44ee-8147-db61d5329a3f.png" data-background-size="contain">
+					<section>
+						<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">미디어위키 이미지 권한 부여</h3>
+						<ul class="fragment">
+							<li>위키를 이용하다 보면 이미지를 업로드를 해야 하는 경우가 빈번히 발생함</li>
+							<img src="https://user-images.githubusercontent.com/61646760/217202932-271484e2-db01-4c6c-967f-5ddc7203e22d.png" height="250" />
+							<li>위키 서버의 images 폴더에 이미지 파일이 저장됨</li>
+							<li>images 폴더의 권한을 변경해야 이미지 업로드 가능</li>
+						</ul>
+					</section>
+					<section>
+						<img src="img/ec51.png" height="450" />
+						<p>1. <strong>sudo chmod 777 ../../var/www/html/wiki/images</strong><br />: images 폴더의 권한을 777로 변경</p>
+					</section>
+					<section>
+						<ul>
+							<li>명령어 설명 : chmod</li>
+							<ul>
+								<li><strong>chmod 777 htdocs/wiki/images</strong></li>
+								<ul>
+									<li class="fragment"><strong>chmod</strong></li>
+									<ul class="fragment">
+										<li>파일, 폴더의 권한을 변경(change mode)하는 명령어</li>
+									</ul>
+									<li class="fragment"><strong>777</strong></li>
+									<ul class="fragment">
+										<li>사용자, 그룹, 기타에 대해 각각 7의 권한을 부여한다는 의미</li>
+										<li><strong>7</strong> : 읽기(4) + 쓰기(2) + 실행(1) = 세 권한의 합</li>
+									</ul>
+									<li class="fragment">즉, <strong>누구든 위키에 이미지 파일을 올리거나 볼 수 있게 설정</strong>하는 과정!</li>
+								</ul>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<img src="img/ec52.png" height="400" />
+						<p>2. <strong>sudo mv ../../var/www/html/wiki/images/.htaccess ../../var/www/html/wiki/images/.htaccess_disabled</strong><br />: images 안 .htaccess 파일을 .htaccess_disabled로 변경</p>
+					</section>
+					<section>
+						<img src="img/ec53.png" />
+						<p>3. 입력 시 아무것도 안 뜬다면 잘 처리된 것</p>
+					</section>
+					<section>
+						<ul>
+							<li>명령어 설명 : mv</li>
+							<ul>
+								<li><strong>sudo mv ../../var/www/html/wiki/images/.htaccess ../../var/www/html/wiki/images/.htaccess_disabled</strong></li>
+								<ul>
+									<li class="fragment"><strong>mv</strong></li>
+									<ul class="fragment">
+										<li>파일, 폴더를 이동(move)시키는 명령어</li>
+									</ul>
+									<li class="fragment"><strong>.htaccess</strong></li>
+									<ul class="fragment">
+										<li>“hypertext access”의 약자</li>
+										<li>폴더에 대한 접근을 설정하는 파일</li>
+									</ul>
+									<li class="fragment">즉 .htaccess를 .htaccess_disabled로 바꾸는 것은 <strong>.htaccess 파일을 비활성화</strong>하는 것!</li>
+								</ul>
+							</ul>
+						</ul>
+					</section>
+				</section>
+
+				<section id="설치" data-transition="fade" data-background-image="https://user-images.githubusercontent.com/61646760/191900619-957216a8-5677-44ee-8147-db61d5329a3f.png" data-background-size="contain">
+					<section>
+						<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">웹에서 미디어위키 설치</h3>
+						<ul class="fragment">
+							<li>설정한 <strong>탄력적IP/wiki</strong>로 접속할 것</li>
+							<img src="https://user-images.githubusercontent.com/61646760/217207596-4cadeffa-e8da-47c3-ab64-74bf98f8fce7.png" height="270" />
+							<li>위의 경우 주소 창에 <strong>3.39.174.59/wiki</strong>를 입력해서 접속</li>
+						</ul>
+					</section>
+					<section>
+						<img src="img/wk01.png" />
+						<p>1. <strong>set up the wiki</strong> 부분 클릭</p>
+					</section>
+					<section>
+						<img src="img/wk02.png" />
+						<p>2. 한국어 설정 확인 후 계속 버튼 클릭</p>
+					</section>
+					<section>
+						<img src="img/wk03.png" />
+						<p>3. 미디어위키 설치할 수 있으므로 계속 버튼 클릭</p>
+					</section>
+					<section>
+						<img src="img/wk04.png" />
+						<p>4. 데이터베이스 호스트는 localhost,<br />데이터베이스 이름은 만든 데이터베이스 이름(wikidb)</p>
+					</section>
+					<section>
+						<img src="img/wk05.png" height="460"/>
+						<p>5. 앞서 만든 데이터베이스, 사용자(wiki) 및 비밀번호(e52fwUUfE9hyoi6r1) 입력</p>
+					</section>
+					<section>
+						<img src="img/wk06.png" />
+						<p>6. 계속 버튼 클릭</p>
+					</section>
+					<section>
+						<img src="img/wk07.png" />
+						<p>7. 위키 이름, 관리자 계정 ID, PW 입력</p>
+					</section>
+					<section>
+						<img src="https://user-images.githubusercontent.com/61646760/200342977-617ad9c4-f092-465f-84e1-94faccd29135.png" height="500" />
+						<p>관리자 계정은 위키에 로그인할 때 사용하는 계정</p>
+					</section>
+					<section>
+						<img src="img/wk08.png" />
+						<p>8. 더 많은 질문을 물어보세요 체크 후 계속 버튼 클릭</p>
+					</section>
+					<section>
+						<img src="img/wk09.png" />
+						<p>9. 상기 이미지 참고하여 체크 및 체크 해제</p>
+					</section>
+					<section>
+						<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">크리에이티브 커먼즈 라이선스</h3>
+						<img src="https://user-images.githubusercontent.com/61646760/200329446-1c0c2cfa-054f-41e6-a075-801483e08278.png" height="250" />
+						<img src="https://user-images.githubusercontent.com/61646760/200336109-3a0ed103-1c26-47d0-a9a5-81a9aea7ac11.png" height="180" />
+					</section>
+					<section>
+						<img src="img/wk10.png" />
+						<p>10. 상기 이미지 참고하여 스킨 결정 및 확장 기능 선택</p>
+					</section>
+					<section>
+						<img src="img/wk11.png" />
+						<p>11. <strong>파일 올리기 활성화</strong> 체크 (로고는 추후 변경 가능)</p>
+					</section>
+					<section>
+						<img src="img/wk12.png" />
+						<p>12. <strong>캐시하지 않음</strong> 체크 후 계속 클릭</p>
+					</section>
+					<section>
+						<img src="img/wk13.png" />
+						<p>13. 계속 버튼 클릭</p>
+					</section>
+					<section>
+						<img src="img/wk14.png" />
+						<p>14. 구축이 완료되면 계속 버튼 클릭</p>
+					</section>
+					<section>
+						<img src="img/wk15.png" height="450" />
+						<p>15. 설치 완료 시 LocalSettings.php 파일이 자동 다운로드됨 (안 되면 수동으로 다운 후 보관)</p>
+					</section>
+					<section>
+						<img src="img/wk17.png" height="450" />
+						<p>16. 탄력적IP/wiki 접속 시<br />LocalSettings.php를 찾을 수 없다는 문구 확인 가능</p>
+					</section>
+				</section>
+
+				<section id="php" data-transition="fade" data-background-image="https://user-images.githubusercontent.com/61646760/191900619-957216a8-5677-44ee-8147-db61d5329a3f.png" data-background-size="contain">
+					<section>
+						<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">LocalSettings.php 서버 업로드</h3>
+						<ul class="fragment">
+							<li><strong>LocalSettings.php</strong> : 데이터베이스 정보를 포함, 위키와 관련된 대부분의 설정을 관리하는 파일</li>
+							<ul>
+								<li>미디어위키 설치 시 저절로 생성되나, 사용자가 직접 wiki 폴더 안에 넣어 줘야 함</li>
+							</ul>
+							<li class="fragment">그런데 서버에 어떻게 파일을 올릴 수 있을까?🤔🤔</li>
+						</ul>
+					</section>
+					<section>
+						<ul>
+							<li>FTP/SFTP 프로그램인 <strong>FileZilla</strong>를 활용!</li>
+							<ul>
+								<img src="https://user-images.githubusercontent.com/61646760/199055066-cdf38667-ec51-4272-bb2d-b0f8e8bc11dc.png" height="300" />
+								<li><strong>FTP(File Transfer Protocol)</strong> : 서버에 파일을 올리는 프로그램</li>
+								<li><strong>SFTP(Secure FTP)</strong> : 암호를 통해 보다 안전하게 서버에 파일을 올리는 프로그램</li>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<img src="img/fz00.png" />
+						<p>1. <a href="https://filezilla-project.org/"><strong>FileZilla</strong></a> 설치 : 설치 방법은 <a href="https://rnrn2.tistory.com/entry/파일질라-다운로드-및-설치-방법-사용법">이곳</a>을 참고</p>
+					</section>
+					<section>
+						<img src="img/fz01.png" height="500" />
+						<p>2. FileZilla 실행</p>
+					</section>
+					<section>
+						<img src="img/fz02.png" height="500" />
+						<p>3. 파일 - 사이트 관리자 클릭</p>
+					</section>
+					<section>
+						<img src="img/fz03.png" height="500" />
+						<p>4. 새 사이트 클릭 후 이름을 ec2-wiki로 설정</p>
+					</section>
+					<section>
+						<img src="img/fz04.png" height="450" />
+						<p>5. 프로토콜, 호스트, 로그온 유형 키 파일로 입력 후<br />찾아보기로 전에 생성한 <strong>키 페어 파일(.pem)</strong> 입력 및 연결</p>
+					</section>
+					<section>
+						<img src="img/ubuntu.png" height="450" />
+						<p>6. 호스트는 인스턴스의 퍼블릭IP주소, 사용자는 인스턴스 사용자 이름을 입력한 것임</p>
+					</section>
+					<section>
+						<img src="img/fz05.png" />
+						<p>7. 알 수 없는 호스트키라는 창이 뜨면 '<strong>항상 이 호스트를 신뢰하고 이 키를 캐시에 등록(A)</strong>' 체크 후 확인 버튼 클릭</p>
+					</section>
+					<section>
+						<img src="img/fz06.png" height="500" />
+						<p>8. 서버에 성공적으로 연결된 상태</p>
+					</section>
+					<section>
+						<img src="img/fz07.png" height="500" />
+						<p>9. 리모트 사이트 아래 <strong>/</strong> 클릭</p>
+					</section>
+					<section>
+						<img src="img/fz08.png" height="500" />
+						<p>10. <strong>var</strong> 폴더를 찾아 더블클릭</p>
+					</section>
+					<section>
+						<img src="img/fz09.png" height="500" />
+						<p>11. <strong>www</strong> 폴더를 찾아 더블클릭</p>
+					</section>
+					<section>
+						<img src="img/fz10.png" height="500" />
+						<p>12. <strong>html</strong> 폴더 더블클릭</p>
+					</section>
+					<section>
+						<img src="img/fz11.png" height="500" />
+						<p>13. <strong>wiki</strong> 폴더 더블클릭</p>
+					</section>
+					<section>
+						<img src="img/fz12.png" height="500" />
+						<p>14. 다운받은 <strong>LocalSettings.php</strong> 파일 우클릭하여 업로드</p>
+					</section>
+					<section>
+						<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">업로드에 실패한 경우?</h3>
+					</section>
+					<section>
+						<img src="img/fz13.png" height="500" />
+						<p><strong>전송 실패</strong>가 나타나는 경우 어떻게 해야 할까?</p>
+					</section>
+					<section>
+						<img src="img/fz14.png" height="450" />
+						<p>1. <strong>sudo chmod -R 777 "../../var/www/html/"</strong> 입력<br />: html 폴더 권한을 777로 변경</p>
+					</section>
+					<section>
+						<img src="img/fz15.png" height="500" />
+						<p>2. 다시 시도해 보면 성공적으로 업로드됨</p>
+					</section>
+					<section>
+						<img src="img/fz17.png" height="500" />
+						<p>3. <strong>탄력적IP주소/wiki</strong> 접속 시 미디어위키 접속</p>
+					</section>
+					<section>
+						<img src="img/fz16.png" height="450" />
+						<p>참고로 777에서 755로 권한을 변경하여 본인 외의 권한을 제한하는 것 역시 가능함</p>
+					</section>
+				</section>
+
+				<section data-transition="fade" data-background-image="https://user-images.githubusercontent.com/61646760/191900619-957216a8-5677-44ee-8147-db61d5329a3f.png" data-background-size="contain">
+					<h2 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">미디어위키 추가 설정</h2>
+				</section>
+				
+				<section id="로고" data-transition="fade" data-background-image="https://user-images.githubusercontent.com/61646760/191900619-957216a8-5677-44ee-8147-db61d5329a3f.png" data-background-size="contain">
+					<section>
+						<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">미디어위키 추가 설정</h3>
+						<ul>
+							<li>필수적이지는 않으나 위키 사용에 도움이 되는 여러 추가 설정에 대한 소개를 담은 부록</li>
+							<li>기본적으로 위키 설정에 대한 정보를 담고 있는 LocalSettings.php를 텍스트 에디터로 열어 수정하는 과정</li>
+							<li>필요에 따라 취사선택하는 것을 권함</li>
+						</ul>
+					</section>
+					<section>
+						<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">미디어위키 로고 설정</h3>
+						<ol class="fragment">
+							<li>로고로 사용할 135 x 135 픽셀 크기의 이미지 파일을 구한다. (저작권상 문제가 없어야 함)</li>
+							<li>FileZilla로 wiki/resources/assets/ 폴더에 로고로 사용할 이미지 파일을 업로드한다.</li>
+							<li>LocalSettings.php 파일을 우클릭한 뒤 메모장으로 연다. (기타 텍스트 에디터도 무관함)</li>
+					</section>
+					<section>
+						<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">미디어위키 로고 설정</h3>
+						<ol class="fragment" start="4">
+							<li>38번째 줄-45번째 줄까지 아래 내용을 확인할 수 있다.</li>
+							<img src="https://user-images.githubusercontent.com/61646760/217221752-ed98551d-c125-4d7b-90f7-0293a33a895a.png" height="200" />
+							<li>위의 change-your-logo.svg 부분을 로고로 사용할 이미지 파일의 이름으로 변경한다.</li>
+							<li>변경한 LocalSettings.php 파일을 서버 내 wiki 폴더로 업로드한다.</li>
+					</section>
+				</section>
+
+				<section id="스킨" data-transition="fade" data-background-image="https://user-images.githubusercontent.com/61646760/191900619-957216a8-5677-44ee-8147-db61d5329a3f.png" data-background-size="contain">
+					<section>
+						<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">미디어위키 스킨 설정</h3>
+						<ol class="fragment">
+							<li>https://www.mediawiki.org/wiki/Category:All_skins/ko로 들어가서 원하는 스킨을 다운로드한다.</li>
+							<img src="https://user-images.githubusercontent.com/61646760/217226560-3806ac15-bbdc-4acd-b014-519ffa06610a.png" height="380" />
+					</section>
+					<section>
+						<ol start="2">
+							<li>다운로드한 스킨의 압축을 풀고 wiki 폴더 내 skins 폴더에 다운로드한 스킨 폴더를 넣는다.</li>
+							<li>마찬가지로 LocalSettings.php 파일을 열면 128번째 줄-137번째 줄까지 아래 내용을 확인할 수 있다.</li>
+							<img src="https://user-images.githubusercontent.com/61646760/217225035-4dc27f93-83a5-4c43-bc44-de7821f77242.png" height="300" />
+						</ol>
+					</section>
+					<section>
+						<ol start="4">
+							<li>LocalSettings.php에 wfLoadSkin('스킨 폴더명')을 추가함으로써 스킨을 설치하고, wgDefaultSkin의 값을 vector 대신 적용하고자 하는 스킨 폴더명으로 수정한다.</li>
+							<li>변경한 LocalSettings.php 파일을 서버 내 wiki 폴더로 업로드한다.</li>
+						</ol>
+					</section>
+				</section>
+
+				<section id="익스텐션" data-transition="fade" data-background-image="https://user-images.githubusercontent.com/61646760/191900619-957216a8-5677-44ee-8147-db61d5329a3f.png" data-background-size="contain">
+					<section>
+						<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">미디어위키 확장 기능 설치</h3>
+						<ol class="fragment">
+							<li>https://www.mediawiki.org/wiki/Category:<br />Extensions_by_category/ko로 들어가서 원하는 확장 기능(extension)을 다운로드한다.</li>
+							<img src="https://user-images.githubusercontent.com/61646760/217228303-1d0d5926-992e-41de-bc27-504f0f86270a.png" height="300" />
+					</section>
+					<section>
+						<ol start="2">
+							<li>다운로드한 extension의 압축을 풀고 wiki 폴더 내 extensions 폴더에 다운로드한 extension 폴더를 넣는다.</li>
+							<li>마찬가지로 LocalSettings.php 파일을 열면 140번째 줄-173번째 줄까지 아래 내용을 확인할 수 있다.</li>
+							<img src="https://user-images.githubusercontent.com/61646760/217229000-5182851f-befd-4e12-be5f-75b0f2ea4f9f.png" height="300" />
+						</ol>
+					</section>
+					<section>
+						<ol start="4">
+							<li>LocalSettings.php에 wfLoadSkin('extension 폴더명')을 추가함으로써 확장 기능을 설치하면 확장 기능이 자동으로 적용된다.</li>
+							<li>변경한 LocalSettings.php 파일을 서버 내 wiki 폴더로 업로드한다.</li>
+						</ol>
+					</section>
+				</section>
+
+				<section id="php설정" data-transition="fade" data-background-image="https://user-images.githubusercontent.com/61646760/191900619-957216a8-5677-44ee-8147-db61d5329a3f.png" data-background-size="contain">
+					<section>
+						<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">LocalSettings.php 설정</h3>
+						<ul>
+							<li>아래 코드를 LocalSettings.php 파일 최하단에 삽입</li>
+							<ul>
+								<li>외부 이미지 허용하기</li>
+								<pre><code>$wgAllowExternalImages = true;</code></pre>
+								<ul>
+									<li>이미지 파일을 위키에 업로드하지 않아도 외부 이미지를 img 태그를 통해 가져올 수 있게 하는 설정</li>
+								</ul>
+								<li>새 창으로 띄우기</li>
+								<pre><code>$wgExternalLinkTarget = '_blank';</code></pre>
+								<ul>
+									<li>위키 내 링크를 클릭할 경우 새로운 창에서 해당 링크를 열게 해 주는 설정</li>
+								</ul>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<ul>
+							<li>아래 코드를 LocalSettings.php 파일 최하단에 삽입</li>
+							<ul>
+								<li>권한이 없는 사용자의 문서 편집 막기</li>
+								<pre><code>$wgGroupPermissions['*']['edit'] = false;</code></pre>
+								<ul>
+									<li>다른 사람의 문서 수정 권한을 제거하여 혼자 글을 쓸 수 있는 위키로 변경</li>
+								</ul>
+								<li>미디어위키 가입을 차단하기</li>
+								<pre><code>$wgGroupPermissions['*']['createaccount'] = false;</code></pre>
+								<ul>
+									<li>다른 사람이 미디어위키에 가입하지 못하도록 변경</li>
+								</ul>
+							</ul>
+						</ul>
+					</section>
+				</section>
+
+				<!-- <section id="pdf" data-transition="fade">
+					<h2 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">PDF로 다운받기</h2>
+					<iframe src="//www.slideshare.net/slideshow/embed_code/key/" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> 
+				</section> -->
+
+				<section id="질의응답" data-transition="slide" data-background-image="https://user-images.githubusercontent.com/61646760/191900619-957216a8-5677-44ee-8147-db61d5329a3f.png" data-background-size="contain">
+					<h2 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">감사합니다</h2>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/search/search.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+	</body>
+</html>
